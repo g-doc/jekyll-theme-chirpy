@@ -4,6 +4,10 @@ description: Publication dans La Libre du 22 février 2024
 author: nicolas
 date: 2024-02-12 00:00:00 +0800
 categories: [Article]
+image:
+  path: /assets/img/austerite.jpg
+  alt: L’austérité favorise le vote extrême
+  style: "width:75%; max-width:100%; height:auto;"
 ---
 
 Un article universitaire[^1], publié par le célèbre MIT, met en lumière les conséquences des politiques d’austérité sur le renforcement des votes extrêmes (à gauche, et à droite) en Europe. En un peu moins de 50 pages, les économistes en arrivent à une conclusion limpide : la montée des extrêmes un peu partout en Europe est intimement liée aux décisions politiques d’austérité. Ainsi, une réduction de 1% dans les dépenses publiques générerait, par ses effets de récession et de mécontentement, une montée de 3% des parties extrêmes.

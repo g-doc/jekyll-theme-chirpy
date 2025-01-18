@@ -33,12 +33,12 @@
   );
 
   /* Sidebar */
-  --site-title-color: rgb(0, 0, 0);
-  --site-subtitle-color: #000000;
-  --sidebar-bg: #ff0000;
+  --site-title-color: rgb(255, 255, 255);
+  --site-subtitle-color: rgb(255, 255, 255);
+  --sidebar-bg: rgb(255, 0, 0);
   --sidebar-border-color: #efefef;
-  --sidebar-muted-color: #000000;
-  --sidebar-active-color: #1d1d1d;
+  --sidebar-muted-color: #ffffff;
+  --sidebar-active-color: #3c3c3c;
   --sidebar-hover-bg: rgba(255, 255, 255, 0.64);
   --sidebar-btn-bg: white;
   --sidebar-btn-color: #eb2222;
