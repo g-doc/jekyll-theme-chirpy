@@ -18,21 +18,17 @@ bundle exec jekyll build || {
 # Step 2: Commit and push changes to Git
 echo "Committing and pushing changes to Git..."
 git add -A
-git commit -m "update" || { echo "Nothing to commit, skipping Git commit."; }
-git push origin master || {
+git commit -m "$COMMIT_MESSAGE" || { echo "Nothing to commit, skipping Git commit."; }
+git push origin main || {
   echo "Git push failed!"
   exit 1
 }
 
-# Step 3: Upload the site to OVH
+# Step 3: Upload the site to OVH using SCP
 echo "Uploading the site to OVH hosting..."
 
-# Prompt for password securely
-read -sp "Enter your SFTP password: " SFTP_PASS
-echo
-
-# Use rsync with the password prompt
-rsync -avz --delete -e "sshpass -p $SFTP_PASS ssh -o StrictHostKeyChecking=no" ./_site/ "$SFTP_USER@$SFTP_HOST:$REMOTE_DIR"
+# Use SCP to copy files
+scp -r ./_site/* "$SFTP_USER@$SFTP_HOST:$REMOTE_DIR"
 
 if [ $? -eq 0 ]; then
   echo "Deployment completed successfully!"
