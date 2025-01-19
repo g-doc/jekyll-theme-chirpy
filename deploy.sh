@@ -5,14 +5,12 @@ sudo apt-get install lftp
 
 # Configuration
 
-REMOTE_DIR="/home/nicolaa/www"
-
 # Set variables
 FTP_HOST="ftp.cluster029.hosting.ovh.net"
 FTP_USER="nicolaa"
 FTP_PASS=""
 LOCAL_DIR="./_site" # This is where Jekyll builds the site
-REMOTE_DIR="/path/to/remote/directory"
+REMOTE_DIR="/www"
 
 # Prompt for FTP password
 echo -n "Enter FTP password: "
@@ -31,4 +29,4 @@ quit
 # Git commit and push (optional)
 git add .
 git commit -m "Deploy new changes"
-git push origin main
+git push origin master
