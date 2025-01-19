@@ -19,7 +19,7 @@ bundle exec jekyll build || {
 echo "Committing and pushing changes to Git..."
 git add -A
 git commit -m "update" || { echo "Nothing to commit, skipping Git commit."; }
-git push origin main || {
+git push origin master || {
   echo "Git push failed!"
   exit 1
 }
