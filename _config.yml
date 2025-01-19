@@ -16,7 +16,7 @@ timezone: Europe/Brussels
 
 title: Nicolas Docquier
 
-tagline: Marxism is not dead
+tagline:
 
 description: >- # used by seo meta and the atom feed
   Page personnelle de Nicolas Docquier.
@@ -27,6 +27,12 @@ url: ""
 
 facebook:
   username: nicolas.docquier.3
+
+instagram:
+  username: nicolasdocquier
+
+phone:
+  tel: "+32470119693"
 
 twitter:
   username: twitter_username # change to your Twitter username
@@ -98,7 +104,7 @@ theme_mode: # [light | dark]
 #cdn: "https://chirpy-img.netlify.app"
 
 # the avatar on sidebar, support local or CORS resources
-avatar: "/assets/img/avatar.jpeg"
+avatar: "/assets/img/avatar.png"
 
 # The URL of the site-wide social preview image used in SEO `og:image` meta tag.
 # It can be overridden by a customized `page.image` in front matter.

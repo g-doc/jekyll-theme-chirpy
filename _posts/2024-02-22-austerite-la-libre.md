@@ -4,6 +4,7 @@ description: Publication dans La Libre du 22 février 2024
 author: nicolas
 date: 2024-02-12 00:00:00 +0800
 categories: [Article]
+tags: [politique, économie]
 image:
   path: /assets/img/austerite.jpg
   alt: L’austérité favorise le vote extrême

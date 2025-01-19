@@ -43,6 +43,10 @@
   <div class="sidebar-bottom d-flex flex-wrap  align-items-center w-100">
     {% for entry in site.data.contact %}
       {% case entry.type %}
+        {% when 'instagram' %}
+          {%- capture url -%}
+          https://{{ entry.type }}.com/{{ site[entry.type].username }}
+        {%- endcapture -%}
         {% when 'facebook' %}
           {%- capture url -%}
             https://{{ entry.type }}.com/{{ site[entry.type].username }}
@@ -52,8 +56,10 @@
           {%- capture url -%}
             javascript:location.href = 'mailto:' + ['{{ email[0] }}','{{ email[1] }}'].join('@')
           {%- endcapture -%}
-        {% when 'rss' %}
-          {% assign url = '/feed.xml' | relative_url %}
+        {% when 'phone' %}
+          {%- capture url -%}
+            tel:{{ site[entry.type].tel }}
+          {%- endcapture -%}
         {% else %}
           {% assign url = entry.url %}
       {% endcase %}
