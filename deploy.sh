@@ -1,38 +1,34 @@
 #!/bin/bash
 
+sudo apt-get update
+sudo apt-get install lftp
+
 # Configuration
-SFTP_HOST="ftp.cluster029.hosting.ovh.net"
-SFTP_USER="nicolaa"
-REMOTE_DIR="/home/nicolaa/" # Remote directory on OVH
 
-# Git configuration
-COMMIT_MESSAGE="Deploying site on $(date)"
+REMOTE_DIR="/home/nicolaa/www"
 
-# Step 1: Build the Jekyll site
-echo "Building the Jekyll site..."
-bundle exec jekyll build || {
-  echo "Jekyll build failed!"
-  exit 1
-}
+# Set variables
+FTP_HOST="ftp.cluster029.hosting.ovh.net"
+FTP_USER="nicolaa"
+FTP_PASS=""
+LOCAL_DIR="./_site" # This is where Jekyll builds the site
+REMOTE_DIR="/path/to/remote/directory"
 
-# Step 2: Commit and push changes to Git
-echo "Committing and pushing changes to Git..."
-git add -A
-git commit -m "$COMMIT_MESSAGE" || { echo "Nothing to commit, skipping Git commit."; }
-git push origin master || {
-  echo "Git push failed!"
-  exit 1
-}
+# Prompt for FTP password
+echo -n "Enter FTP password: "
+read -s FTP_PASS
+echo
 
-# Step 3: Upload the site to OVH using SCP
-echo "Uploading the site to OVH hosting..."
+# Deploy using lftp
+lftp -f "
+open ftp://$FTP_USER:$FTP_PASS@$FTP_HOST
+lcd $LOCAL_DIR
+cd $REMOTE_DIR
+mirror -R ./ ./
+quit
+"
 
-# Use SCP to copy files
-scp -r ./_site/* "$SFTP_USER@$SFTP_HOST:$REMOTE_DIR"
-
-if [ $? -eq 0 ]; then
-  echo "Deployment completed successfully!"
-else
-  echo "Deployment failed!"
-  exit 1
-fi
+# Git commit and push (optional)
+git add .
+git commit -m "Deploy new changes"
+git push origin main
